@@ -28,7 +28,7 @@ jobs:
       run: |
         mkdir build
         cd build
-        ../configure --cpu=aarch64 --cross-prefix=aarch64-linux-gnu --prefix=$(realpath install) --target-list=i386-softmmu,x86_64-softmmu,i386-linux-user,x86_64-linux-user --static --enable-spice --enable-spice-protocol
+        ../configure --cpu=aarch64 --cross-prefix=aarch64-linux-gnu- --prefix=$(realpath install) --target-list=i386-softmmu,x86_64-softmmu,i386-linux-user,x86_64-linux-user --static --enable-spice --enable-spice-protocol
         make -j$(nproc --all)
         make install
         mv install ../bruh
