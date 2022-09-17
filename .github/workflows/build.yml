@@ -22,7 +22,11 @@ jobs:
         sudo apt-get install -y libvde-dev libvdeplug-dev libvte-2.91-dev libxen-dev liblzo2-dev
         sudo apt-get install -y valgrind xfslibs-dev
         sudo apt-get install -y libnfs-dev libiscsi-dev
-        sudo apt-get install -y gcc-aarch64-linux-gnu
+        sudo apt-get install -y gcc-aarch64-linux-gnu pkg-config
+        which aarch64-linux-gnu-pkg-config
+        if [ $? > 0 ]; then
+          sudo ln -sf /usr/share/pkg-config-crosswrapper /usr/bin/aarch64-linux-gnu-pkg-config
+        fi
 
     - name: Build QEMU
       run: |
