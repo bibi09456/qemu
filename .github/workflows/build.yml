@@ -23,8 +23,7 @@ jobs:
         sudo apt-get install -y valgrind xfslibs-dev
         sudo apt-get install -y libnfs-dev libiscsi-dev
         sudo apt-get install -y gcc-aarch64-linux-gnu pkg-config
-        which aarch64-linux-gnu-pkg-config
-        if [ $? > 0 ]; then
+        if [ ! -e /usr/bin/aarch64-linux-gnu-pkg-config ]; then
           sudo ln -sf /usr/share/pkg-config-crosswrapper /usr/bin/aarch64-linux-gnu-pkg-config
         fi
 
