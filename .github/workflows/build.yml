@@ -32,6 +32,7 @@ jobs:
         make -j$(nproc --all)
         make install
         mv install ../bruh
+        cd ..
 
     - name: Upload entire QEMU prefix to artifact
       uses: actions/upload-artifact@v3
