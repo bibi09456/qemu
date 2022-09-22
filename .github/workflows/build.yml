@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-        fetch-depth: 0
+        fetch-depth: 1
         submodules: true
 
     - name: Install dependencies
@@ -28,7 +28,7 @@ jobs:
       run: |
         mkdir build
         cd build
-        ../configure --cross-prefix=amd64-mingw32msvc- --prefix=$(realpath install) --target-list=i386-softmmu,x86_64-softmmu --static --enable-spice --enable-spice-protocol --enable-hax
+        ../configure --cross-prefix=x86_64-w64-mingw32- --prefix=$(realpath install) --target-list=i386-softmmu,x86_64-softmmu --static --enable-spice --enable-spice-protocol --enable-hax
         make -j$(nproc --all)
         make install
         mv install ../bruh
