@@ -8,7 +8,7 @@
 #include "qemu/osdep.h"
 #include "hw/sysbus.h"
 #include "hw/irq.h"
-#include "include/hw/register.h"
+#include "hw/register.h"
 #include "qemu/timer.h"
 #include "sysemu/sysemu.h"
 #include "qemu/cutils.h"
@@ -454,7 +454,7 @@ static const VMStateDescription vmstate_ls7a_rtc = {
     .minimum_version_id = 1,
     .pre_save = ls7a_rtc_pre_save,
     .post_load = ls7a_rtc_post_load,
-    .fields = (VMStateField[]) {
+    .fields = (const VMStateField[]) {
         VMSTATE_INT64(offset_toy, LS7ARtcState),
         VMSTATE_INT64(offset_rtc, LS7ARtcState),
         VMSTATE_UINT32_ARRAY(toymatch, LS7ARtcState, TIMER_NUMS),

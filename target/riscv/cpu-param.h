@@ -27,6 +27,7 @@
  *  - S mode HLV/HLVX/HSV 0b101
  *  - M mode HLV/HLVX/HSV 0b111
  */
-#define NB_MMU_MODES 8
+
+#define TCG_GUEST_DEFAULT_MO 0
 
 #endif

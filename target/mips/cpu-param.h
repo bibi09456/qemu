@@ -29,6 +29,7 @@
 #define TARGET_PAGE_BITS_VARY
 #define TARGET_PAGE_BITS_MIN 12
 #endif
-#define NB_MMU_MODES 4
+
+#define TCG_GUEST_DEFAULT_MO (0)
 
 #endif

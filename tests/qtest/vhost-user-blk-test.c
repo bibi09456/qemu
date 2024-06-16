@@ -961,7 +961,7 @@ static void *vhost_user_blk_test_setup(GString *cmd_line, void *arg)
  * Setup for hotplug.
  *
  * Since vhost-user server only serves one vhost-user client one time,
- * another exprot
+ * another export
  *
  */
 static void *vhost_user_blk_hotplug_test_setup(GString *cmd_line, void *arg)
@@ -982,6 +982,12 @@ static void register_vhost_user_blk_test(void)
     QOSGraphTestOptions opts = {
         .before = vhost_user_blk_test_setup,
     };
+
+    if (!getenv("QTEST_QEMU_STORAGE_DAEMON_BINARY")) {
+        g_test_message("QTEST_QEMU_STORAGE_DAEMON_BINARY not defined, "
+                       "skipping vhost-user-blk-test");
+        return;
+    }
 
     /*
      * tests for vhost-user-blk and vhost-user-blk-pci

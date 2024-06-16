@@ -11,10 +11,15 @@ include $(SRC_PATH)/tests/tcg/i386/Makefile.target
 ifeq ($(filter %-linux-user, $(TARGET)),$(TARGET))
 X86_64_TESTS += vsyscall
 X86_64_TESTS += noexec
+X86_64_TESTS += cmpxchg
+X86_64_TESTS += adox
+X86_64_TESTS += test-1648
 TESTS=$(MULTIARCH_TESTS) $(X86_64_TESTS) test-x86_64
 else
 TESTS=$(MULTIARCH_TESTS)
 endif
+
+adox: CFLAGS=-O2
 
 run-test-i386-ssse3: QEMU_OPTS += -cpu max
 run-plugin-test-i386-ssse3-%: QEMU_OPTS += -cpu max
